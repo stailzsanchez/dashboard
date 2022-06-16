@@ -1,0 +1,32 @@
+.dashboard__nav {
+  min-height: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+
+
+.dashboard__logout {
+  display: block;
+  /* justify-content: flex-end; */
+  justify-self: flex-end;
+  height: 100%;
+  width: 20px;
+  transition: 0.3s;
+}
+
+
+.dashboard__logout:hover {
+  transform: scale(1.1);
+}
+
+
+.dashboard {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 50px;
+  justify-content: center;
+}
