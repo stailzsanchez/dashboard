@@ -2,8 +2,12 @@ import React, { MouseEventHandler } from 'react';
 import { useSignIn } from './useSignIn';
 import { useForm } from '../../hooks/useFormLogin';
 import './SignIn.css';
+import { useNavigate } from 'react-router';
+import { ROUTES } from '../../routing';
 
 const SignIn = () => {
+  const navigate = useNavigate();
+
   const { signIn, loading, error } = useSignIn();
   const {
     form: { email, password },
@@ -11,7 +15,15 @@ const SignIn = () => {
   } = useForm({ email: 'UserOne', password: 'pass' });
 
   const login = () => {
-    signIn(email, password);
+    // signIn(email, password);
+    // localStorage.setItem('token', login?.token);
+    localStorage.setItem('token', '123123123123123');
+    navigate(ROUTES.DASHBOARD);
+
+    //MOCK
+    setTimeout(() => {
+      localStorage.setItem('token', '123123123123123');
+    }, 2000);
   };
 
   return (

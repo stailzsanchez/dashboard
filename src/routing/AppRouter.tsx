@@ -6,8 +6,10 @@ import { ROUTES } from './index';
 import { useTokenContext } from '../context';
 
 const AppRouter = () => {
-  const { token } = useTokenContext();
+  const { token, setToken } = useTokenContext();
   const navigate = useNavigate();
+
+  setToken(localStorage.getItem('token'));
 
   useEffect(() => {
     if (token) {

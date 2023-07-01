@@ -15,6 +15,24 @@ import { DiagramInfoType } from '../../components/Diagram/Diagram';
 // import { Chart } from 'chart.js';
 import LOGOUT_IMG from '../../assets/logout.svg';
 
+const mockData = {
+  scenarios: {
+    active: 12,
+    inactive: 2,
+    completed: 4,
+  },
+  lists: {
+    active: 24,
+    inactive: 1,
+    completed: 4,
+  },
+  dialogs: {
+    active: 34,
+    inactive: 7,
+    completed: 0,
+  },
+};
+
 const Dashboard = () => {
   const navigate = useNavigate();
 
@@ -27,9 +45,9 @@ const Dashboard = () => {
     navigate(ROUTES.LOGIN);
   };
 
-  useEffect(() => {
-    getDashboard();
-  }, []);
+  // useEffect(() => {
+  //   getDashboard();
+  // }, []);
 
   if (error) {
     return <div>error - {error}</div>;
@@ -49,9 +67,11 @@ const Dashboard = () => {
           </div>
         </div>
         <div className="dashboard">
-          {dashboard &&
-            Object.entries(dashboard).map(([title, info]) => (
-              <Diagram title={title} info={info as DiagramInfoType} />
+          {mockData &&
+            // {dashboard &&
+            Object.entries(mockData).map(([title, info]) => (
+              <Diagram title={title} info={info as any} />
+              // <Diagram title={title} info={info as DiagramInfoType} />
             ))}
         </div>
       </div>
